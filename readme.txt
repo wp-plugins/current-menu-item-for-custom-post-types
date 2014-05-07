@@ -2,7 +2,7 @@
 Contributors: veribo
 Tags: current menu item, menu active, custom post types menu active, highlight menu, single post, active menu for custom post types
 Requires at least: 3.0
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: 1.0
 License: GPLv2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
 
