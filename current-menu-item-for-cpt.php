@@ -4,7 +4,7 @@
  * Description: Allows you to highlight the current menu item by assigning a page to a custom post type.
  * Author: Veribo Development Team
  * Author URI: http://www.veribodevelopment.com
- * Version: 1.0
+ * Version: 1.1
  */
  
   

@@ -10,7 +10,7 @@ function cmicpt_add_menu_classes( $items ) {
                 $parent = $menu_item->menu_item_parent;
             }    
         }
-        if( get_post_type() != 'posts' && $menu_item->object_id == get_site_option('page_for_posts') ){
+        if( get_post_type() != 'post' && $menu_item->object_id == get_site_option('page_for_posts') ){
             if(($key = array_search('current_page_parent', $menu_item->classes)) !== false) {
                 unset($menu_item->classes[$key]);
             }

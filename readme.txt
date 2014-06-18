@@ -27,6 +27,9 @@ If you're using a template to display a custom post type's archive page, WP does
 
 == Changelog ==
 
+= 1.1 =
+* Bug fix: There was a typo because of which the blog's class was being removed.
+
 = 1.0 =
 * Initial Release
 
