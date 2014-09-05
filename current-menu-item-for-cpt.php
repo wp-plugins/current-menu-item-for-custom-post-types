@@ -9,7 +9,7 @@
  
   
 function cmicpt_menu(){
-    add_submenu_page( 'options-general.php', __('Current Menu Item for Post Types','wpbs'), __('Current Menu Item for Post Types','wpbs'), 'read_private_pages', 'current-menu-item-cpt', 'cmicpt_view' );
+    add_submenu_page( 'options-general.php', __('Current Menu Item for Post Types','cmicpt'), __('Current Menu Item for Post Types','cmicpt'), 'read_private_pages', 'current-menu-item-cpt', 'cmicpt_view' );
 } 
 add_action('admin_menu', 'cmicpt_menu');
 
