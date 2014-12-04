@@ -4,7 +4,7 @@ function cmicpt_add_menu_classes( $items ) {
     foreach($items as $menu_item){
         $cmicptData = json_decode( get_site_option( 'cmicpt-data' ) );
         $cmicptClass = cmicpt_get_classes();
-        foreach($cmicptData as $postType => $postID){
+        if(is_array($cmicptData)) foreach($cmicptData as $postType => $postID){
             if ( $menu_item->object_id == $postID && get_post_type() == $postType ) { 
                 array_push( $menu_item->classes, $cmicptClass->item );
                 $parent = $menu_item->menu_item_parent;
