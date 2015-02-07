@@ -8,9 +8,7 @@
     <form method="post" action="options-general.php?page=current-menu-item-cpt">
 
         <table class="form-table">
-            <tbody>
-                <?php $cmicptData = json_decode( get_site_option( 'cmicpt-data' ) );?>
-                <?php $cmicptClass = json_decode( get_site_option( 'cmicpt-class' ) );?>
+            <tbody>                
                 <?php $pages = get_posts( array( 'numberposts' => -1, 'post_type' => 'page' ) );?>
                 <tr>   
                     <th colspan="2">
@@ -43,7 +41,7 @@
                         <label for="custom_class_name">Custom Item Class</label>
                     </th>
                     <td>
-                        <input class="regular-text ltr" type="text" name="custom_class_name" id="custom_class_name" value="<?php echo $cmicptClass->item;?>" /><br />
+                        <input class="regular-text ltr" type="text" name="custom_class_name" id="custom_class_name" value="<?php echo (isset($cmicptClass->item)) ? $cmicptClass->item : '';?>" /><br />
                         <small>You can enter multiple classes separated by a space. The default class is <em>current-menu-item</em>.</small>
                     </td>
                 </tr>
@@ -52,8 +50,17 @@
                         <label for="custom_parent_class_name">Custom Parent Class</label>
                     </th>
                     <td>
-                        <input class="regular-text ltr" type="text" name="custom_parent_class_name" id="custom_parent_class_name" value="<?php echo $cmicptClass->parent;?>" /><br />
+                        <input class="regular-text ltr" type="text" name="custom_parent_class_name" id="custom_parent_class_name" value="<?php echo (isset($cmicptClass->parent)) ? $cmicptClass->parent : '';?>" /><br />
                         <small>You can enter multiple classes separated by a space. The default class is <em>current-menu-ancestor</em>.</small>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th scope="row">
+                        <label for="show_builtin_post_types">Show built-in Post Types?</label>
+                    </th>
+                    <td>
+                        <input name="show_builtin_post_types" type="checkbox" id="show_builtin_post_types" value="1" <?php echo (isset($cmicptClass->showBuiltin) && $cmicptClass->showBuiltin == 1) ? 'checked="checked"' : '';?> />                        
                     </td>
                 </tr>
             </tbody>

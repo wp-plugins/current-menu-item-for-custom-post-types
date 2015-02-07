@@ -2,8 +2,8 @@
 Contributors: veribo
 Tags: current menu item, menu active, custom post types menu active, highlight menu, single post, active menu for custom post types
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag: 1.1
+Tested up to: 4.1
+Stable tag: 1.2
 License: GPLv2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
 
 Allows you to highlight the current menu item by assigning a page to a custom post type.
@@ -26,6 +26,13 @@ If you're using a template to display a custom post type's archive page, WP does
 
 
 == Changelog ==
+
+= 1.2 =
+* Added option to show built-in post types
+* Changed the capability required so only administrators can edit options.
+
+= 1.1 =
+* Bug fix: There was a typo because of which the blog's class was being removed.
 
 = 1.0 =
 * Initial Release
