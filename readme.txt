@@ -28,7 +28,7 @@ If you're using a template to display a custom post type's archive page, WP does
 == Changelog ==
 
 = 1.2 =
-* Added option to show built-in post types
+* Added option to show built-in post types 
 * Changed the capability required so only administrators can edit options.
 
 = 1.1 =
