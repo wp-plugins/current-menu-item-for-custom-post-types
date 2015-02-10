@@ -1,6 +1,6 @@
 === Current Menu Item for Custom Post Types ===
 Contributors: veribo
-Tags: current menu item, menu active, custom post types menu active, highlight menu, single post, active menu for custom post types
+Tags: current menu item, menu active, custom post types menu active, highlight menu, single post, active menu for custom post types, archive active menu, active menu
 Requires at least: 3.0
 Tested up to: 4.1
 Stable tag: 1.2
@@ -28,7 +28,7 @@ If you're using a template to display a custom post type's archive page, WP does
 == Changelog ==
 
 = 1.2 =
-* Added option to show built-in post types
+* Added option to show built-in post types 
 * Changed the capability required so only administrators can edit options.
 
 = 1.1 =
