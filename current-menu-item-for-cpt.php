@@ -4,12 +4,12 @@
  * Description: Allows you to highlight the current menu item by assigning a page to a custom post type.
  * Author: Veribo Development Team
  * Author URI: http://www.veribodevelopment.com
- * Version: 1.2
+ * Version: 1.2.1
  */
  
   
 function cmicpt_menu(){
-    add_submenu_page( 'options-general.php', __('Current Menu Item for Post Types','cmicpt'), __('Current Menu Item for Post Types','cmicpt'), 'edit_files', 'current-menu-item-cpt', 'cmicpt_view' );
+    add_submenu_page( 'options-general.php', __('Current Menu Item for Post Types','cmicpt'), __('Current Menu Item for Post Types','cmicpt'), 'activate_plugins', 'current-menu-item-cpt', 'cmicpt_view' );
 } 
 add_action('admin_menu', 'cmicpt_menu');
 
