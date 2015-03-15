@@ -28,15 +28,23 @@ add_filter("plugin_action_links_" . plugin_basename(__FILE__), 'cmicpt_settings_
 function cmicpt_view(){
     $cmicptClass = json_decode( get_site_option( 'cmicpt-class' ) );
     $cmicptData = json_decode( get_site_option( 'cmicpt-data' ) );
-    $postTypes = get_post_types( array( 'public' => true, '_builtin' => (isset($cmicptClass->showBuiltin) && $cmicptClass->showBuiltin == 1) ? true : false ), 'objects', 'and' );    
+    $postTypes = get_post_types( array( 'public' => true, '_builtin' => false), 'objects', 'and' );    
+    if(isset($cmicptClass->showBuiltin) && $cmicptClass->showBuiltin == 1) {
+        $postTypesBuiltIn = get_post_types( array( 'public' => true, '_builtin' => true), 'objects', 'and' );    
+        $postTypes = (object) array_merge((array) $postTypesBuiltIn, (array) $postTypes);
+    }   
+    
     if(!empty($_POST['submit']) && $_POST['submit'] != ''){
         $cmicptClasses['item'] = esc_html( str_replace( '.', '', $_POST['custom_class_name'] ) );    
         $cmicptClasses['parent'] = esc_html( str_replace( '.', '', $_POST['custom_parent_class_name'] ) );
         $cmicptClasses['showBuiltin'] = esc_html( $_POST['show_builtin_post_types'] );      
         update_site_option('cmicpt-class', json_encode( $cmicptClasses ) );
         $cmicptClass = json_decode( get_site_option( 'cmicpt-class' ) );
-        $postTypes = get_post_types( array( 'public' => true, '_builtin' => ($cmicptClass->showBuiltin == 1) ? true : false ), 'objects', 'and' );
-                
+        $postTypes = get_post_types( array( 'public' => true, '_builtin' => false), 'objects', 'and' );
+        if($cmicptClass->showBuiltin == 1) {
+            $postTypesBuiltIn = get_post_types( array( 'public' => true, '_builtin' => true), 'objects', 'and' );    
+            $postTypes = (object) array_merge((array) $postTypesBuiltIn, (array) $postTypes);
+        }     
         $cmicptData = array();
         foreach($postTypes as $postType){
             if(!empty($_POST[$postType->name]) && $_POST[$postType->name] != ''){
