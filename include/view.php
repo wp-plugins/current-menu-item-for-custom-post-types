@@ -5,11 +5,16 @@
         <p><strong>Settings saved.</strong></p>
     </div>
     <?php endif;?>
+    <?php if((function_exists('pll_current_language') && !pll_current_language()) || (function_exists('icl_object_id') && ICL_LANGUAGE_CODE == 'all')):?>
+        <div id="setting-error-settings_updated" class="error settings-error"> 
+            <p><strong>Please select a language from the admin bar.</strong></p>
+        </div>
+    <?php else:?>
     <form method="post" action="options-general.php?page=current-menu-item-cpt">
-
+       
         <table class="form-table">
             <tbody>                
-                <?php $pages = get_posts( array( 'numberposts' => -1, 'post_type' => 'page' ) );?>
+                <?php $pages = get_posts( array( 'numberposts' => -1, 'post_type' => 'page', 'suppress_filters' => false ) );?>
                 <tr>   
                     <th colspan="2">
                         <h3>Assign custom post types to pages</h3>
@@ -68,5 +73,5 @@
     
         <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes" /></p>
     </form>
-    
+    <?php endif;?>
 </div>

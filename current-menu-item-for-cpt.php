@@ -25,9 +25,23 @@ function cmicpt_settings_link($links) {
 }
 add_filter("plugin_action_links_" . plugin_basename(__FILE__), 'cmicpt_settings_link' );
 
+function getDataSettingName(){
+
+    if(function_exists('pll_current_language')){
+        return 'cmicpt-data-' . pll_current_language();
+    }
+    if(function_exists('icl_object_id')){
+        return 'cmicpt-data-' .ICL_LANGUAGE_CODE;
+    }
+    
+    return 'cmicpt-data';
+}
+
 function cmicpt_view(){
+       
+    $dataSettingName = getDataSettingName();    
     $cmicptClass = json_decode( get_site_option( 'cmicpt-class' ) );
-    $cmicptData = json_decode( get_site_option( 'cmicpt-data' ) );
+    $cmicptData = json_decode( get_site_option( $dataSettingName ) );
     $postTypes = get_post_types( array( 'public' => true, '_builtin' => false), 'objects', 'and' );    
     if(isset($cmicptClass->showBuiltin) && $cmicptClass->showBuiltin == 1) {
         $postTypesBuiltIn = get_post_types( array( 'public' => true, '_builtin' => true), 'objects', 'and' );    
@@ -51,8 +65,8 @@ function cmicpt_view(){
                 $cmicptData[$postType->name] = $_POST[$postType->name];  
             }
         } 
-        update_site_option('cmicpt-data', json_encode( $cmicptData ) );                   
-        $cmicptData = json_decode( get_site_option( 'cmicpt-data' ) );
+        update_site_option($dataSettingName, json_encode( $cmicptData ) );                   
+        $cmicptData = json_decode( get_site_option( $dataSettingName ) );
                 
                 
     }

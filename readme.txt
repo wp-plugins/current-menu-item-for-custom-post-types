@@ -3,7 +3,7 @@ Contributors: veribo
 Tags: current menu item, menu active, custom post types menu active, highlight menu, single post, active menu for custom post types, archive active menu, active menu
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.2.2
+Stable tag: 1.3
 License: GPLv2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
 
 Allows you to highlight the current menu item by assigning a page to a custom post type.
@@ -26,6 +26,9 @@ If you're using a template to display a custom post type's archive page, WP does
 
 
 == Changelog ==
+
+= 1.3 =
+* Added multi language support (works with WPML and Polylang)
 
 = 1.2.2 =
 * Fixed a bug which wouldn't let you use both built-in and custom post types at the same time.
